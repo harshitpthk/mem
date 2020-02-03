@@ -37,30 +37,30 @@ const gameEngine = {
         // Level 1 = 2*2 ==== colors required 4/2 = 2
         // Level 2 = 4*4 ==== colors required 16/2 = 8
         // Level 3 = 6*6 ==== colors required 36/2 = 18
-        let _number_of_grids = level * 2;
-        let _number_of_color_required = _number_of_grids * _number_of_grids / 2;
+        let numberOfGrids = level * 2;
+        let numberOfColorRequired = numberOfGrids * numberOfGrids / 2;
         // colors that we will use for tiles
-        let _colors_ = colors.slice(0, _number_of_color_required);
-        let _color_for_tiles = _colors_.concat(_colors_); 
+        let colorsForLevel = colors.slice(0, numberOfColorRequired);
+        let colorForTiles = colorsForLevel.concat(colorsForLevel); 
 
-        let _game_grid = [];
+        let gameGrid = [];
 
         let i = 0;
         let j = 0;
 
-        for( i = 0 ; i < _number_of_grids; i++) {
-            let _game_tiles_row = [];
-            for(j = 0 ; j < _number_of_grids; j++){
-                let random_index = Math.floor(Math.random()*_color_for_tiles.length);
-                let color_for_current_tile = _color_for_tiles[random_index];
-                _color_for_tiles.splice(random_index, 1);
-                let tile = gameEngine.prepareTile(i,j, color_for_current_tile);
-                _game_tiles_row.push(tile);
+        for( i = 0 ; i < numberOfGrids; i++) {
+            let gameTilesRow = [];
+            for(j = 0 ; j < numberOfGrids; j++){
+                let randomIndex = Math.floor(Math.random()*colorForTiles.length);
+                let colorForCurrentTile = colorForTiles[randomIndex];
+                colorForTiles.splice(randomIndex, 1);
+                let tile = gameEngine.prepareTile(i,j, colorForCurrentTile);
+                gameTilesRow.push(tile);
             }
-            _game_grid.push(_game_tiles_row);
+            gameGrid.push(gameTilesRow);
         }  
         
-        return _game_grid;
+        return gameGrid;
     },
     prepareTile: (i, j, revealColor) => {
         return { 
@@ -132,9 +132,9 @@ const gameEngine = {
             else {
                 tile.memorised = false;
                 gameEngine.lastClickedTile.memorised = false;
-                let _lastTileClickedHTMl = gameEngine.lastClickedTileHTML;
+                let lastTileClickedHTMl = gameEngine.lastClickedTileHTML;
                 setTimeout(() => {
-                    _lastTileClickedHTMl.style.backgroundColor = 'yellow';
+                    lastTileClickedHTMl.style.backgroundColor = 'yellow';
                     tileHTMLElem.style.backgroundColor = 'yellow';
                 }, 500)
             }
