@@ -56,6 +56,10 @@ const gameEngine = {
         let levelNotifierHTMLElem = document.getElementById('levelNotifier');
         levelNotifierHTMLElem.innerHTML = '';
     },
+    cleanMovesNotifier: () => {
+        let movesNotifierHTMLElem = document.getElementById('movesNotifier');
+        movesNotifierHTMLElem.innerHTML = 0;
+    },
     init: () => {
         gameEngine.reset();
         gameEngine.startLevel(1);
@@ -202,13 +206,15 @@ const gameEngine = {
             }
             gameEngine.lastClickedTile = undefined;
             gameEngine.lastClickedTileHTML = undefined;
-            matchingMode = false;
-            gameEngine.currentLevelMoves++;
+            gameEngine.matchingMode = false;
         } else {
             gameEngine.lastClickedTile = tile;
             gameEngine.lastClickedTileHTML = tileHTMLElem;
             gameEngine.matchingMode = true;
         }
+        gameEngine.currentLevelMoves++;
+        let moveElem = document.getElementById('movesNotifier');
+        moveElem.innerHTML = gameEngine.currentLevelMoves;
         if (gameEngine.checkIfLevelFinished()) {
             // Enable Next Level Button
             gameEngine.showNextLevelButton();
@@ -227,10 +233,12 @@ const gameEngine = {
             alert('Congratulations You Commpleted All levels!');
             return;
         } else {
+            gameEngine.currentLevelMoves = 0;
             gameEngine.cleanGridContainer();
             gameEngine.cleanLevelNotifier();
             gameEngine.currentLevel++;
             gameEngine.startLevel(gameEngine.currentLevel);
+            gameEngine.cleanMovesNotifier();
         }
     },
     checkIfLevelFinished: () => {
