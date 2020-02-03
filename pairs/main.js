@@ -3,6 +3,14 @@ const colors = [
                'aqua', 'darkgreen', 'olive', 'teal', 'silver', 'rosybrown', 'navy', 'wheat'
 ];
 
+const game = {
+    gameEngine: undefined,
+    init: (user, gameEngine) => {
+        game.gameEngine = gameEngine;
+        game.gameEngine.init();
+    }
+}
+
 const gameEngine = {
     lastClickedTile: undefined, // Clicked first Tile
     lastClickedTileHTML: undefined, // Clicked first Tile HTML Element Reference
