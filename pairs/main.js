@@ -1,4 +1,4 @@
-let colors = [
+const colors = [
                'red', 'green', 'blue', 'cyan', 'black', 'brown', 'orange', 'pink', 'white', 'blueviolet', 
                'aqua', 'darkgreen', 'olive', 'teal', 'silver', 'rosybrown', 'navy', 'wheat'
 ];
