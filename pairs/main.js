@@ -89,7 +89,8 @@ const gameEngine = {
         tileClassAttribute.value = "tile";
         tileHTML.setAttributeNode(tileClassAttribute);
         tileHTML.addEventListener('click', function onClick(){
-            gameEngine.decide(tile,this);
+            let titleHTMLElem = this;
+            gameEngine.decide(tile,titleHTMLElem);
         });
         return tileHTML;
     },
@@ -98,7 +99,7 @@ const gameEngine = {
         let levelTextElem = document.createTextNode(`Level ${level}`);
         levelNotifierElem.appendChild(levelTextElem);
     },
-    decide: (tile, tileHTML) => {
+    decide: (tile, tileHTMLElem) => {
 
         if( tile.memorised ){
             // if the tile is memorised we return immediately
@@ -107,7 +108,7 @@ const gameEngine = {
 
         // method to reveal current clicked tile color
         let revealTileColor = () => {
-            tileHTML.style.backgroundColor = tile.revealColor;
+            tileHTMLElem.style.backgroundColor = tile.revealColor;
         }
 
         if(gameEngine.matchingMode) {
@@ -134,7 +135,7 @@ const gameEngine = {
                 let _lastTileClickedHTMl = gameEngine.lastClickedTileHTML;
                 setTimeout(() => {
                     _lastTileClickedHTMl.style.backgroundColor = 'yellow';
-                    tileHTML.style.backgroundColor = 'yellow';
+                    tileHTMLElem.style.backgroundColor = 'yellow';
                 }, 500)
             }
             gameEngine.lastClickedTile = undefined;
@@ -143,10 +144,13 @@ const gameEngine = {
             gameEngine.currentLevelMoves++;
         } else {
             gameEngine.lastClickedTile = tile;
-            gameEngine.lastClickedTileHTML = tileHTML;
+            gameEngine.lastClickedTileHTML = tileHTMLElem;
             gameEngine.matchingMode = true;
         }
        
+    },
+    nextLevel: () => {
+
     }
 };
 
