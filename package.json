@@ -2,7 +2,7 @@
   "name": "mem",
   "version": "1.0.0",
   "description": "Memory Games in Javascript",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +11,8 @@
     "url": "git+https://github.com/harshitpthk/mem.git"
   },
   "keywords": [
-    "javascript", "games"
+    "javascript",
+    "games"
   ],
   "author": "Harshit Pathak",
   "license": "ISC",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/harshitpthk/mem#readme",
   "devDependencies": {
-  
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   }
 }

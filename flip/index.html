@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+    <head>
+        <style>
+            body{
+                text-align: center;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+
+            #gameGrid{
+                display: inline-block;
+                margin: 12px;
+                width: auto;
+                height:auto;
+                border: 2px solid black;
+            }
+            .flex {
+                display: flex;
+            }
+            .tile {
+                height: 48px;
+                width: 48px;
+                margin: 4px;
+                display: inline-block;
+                border: 1px solid gray;
+                background-color: yellow;
+            }
+            .revealedTile {
+                background-color: black !important;
+            }
+
+            .gameName{
+                font-size: 2rem;
+                margin: 20px;
+            }
+            #levelNotifier {
+                font-size: 2rem;
+                margin: 20px;
+            }
+            .button{
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                padding: 12px 22px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            .button:hover {
+                background-color: rgb(40, 92, 42); /* Green */
+                color: white;
+            }
+            .hidden {
+                display: none;
+            }
+            #movesContainer{
+                margin: 12px;
+                font-size: 1.2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="gameName">
+            Memory Flip
+        </div>
+        <div class="gameContainer">
+            <div id="levelNotifier">
+            </div>
+            <div id="movesContainer">
+                <span>Moves: </span>
+                <span id="movesNotifier">0</span>
+            </div>
+            <div>
+                <div class="button" id="startLevelButton">Start</div>
+            </div>
+            <div id="gameGrid">
+            </div>
+            <div>
+                <div class="button hidden" id="nextLevelButton">Next Level</div>
+            </div>
+
+        </div>
+    </body>
+    <script src="main.js"></script>
+</html>
