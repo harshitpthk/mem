@@ -25,7 +25,7 @@
                 background-color: yellow;
             }
             .revealedTile {
-                background-color: black !important;
+                background-color: green !important;
             }
 
             .gameName{
@@ -54,6 +54,9 @@
             .hidden {
                 display: none;
             }
+            .disabled {
+                background-color: rgb(168, 168, 61) !important;
+            }
             #movesContainer{
                 margin: 12px;
                 font-size: 1.2rem;
@@ -68,13 +71,15 @@
             <div id="levelNotifier">
             </div>
             <div id="movesContainer">
-                <span>Moves: </span>
+                <span>Moves Left: </span>
                 <span id="movesNotifier">0</span>
             </div>
             <div>
-                <div class="button" id="startLevelButton">Start</div>
+                <div id="gameGrid">
+                </div>
             </div>
-            <div id="gameGrid">
+            <div>
+                <div class="button" id="startLevelButton">Start</div>
             </div>
             <div>
                 <div class="button hidden" id="nextLevelButton">Next Level</div>
