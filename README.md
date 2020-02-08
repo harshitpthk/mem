@@ -1,3 +1,3 @@
-**Memory Games in Javascript**
+## Memory Games in Javascript
 
-    https://thirsty-mestorf-897b61.netlify.com/
+[Deployed Here](https://thirsty-mestorf-897b61.netlify.com/)
