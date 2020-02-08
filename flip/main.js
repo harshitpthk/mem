@@ -216,6 +216,7 @@ const game = (function gameCreator() {
             _disableTiles();
         },
         restartLevel: (level, gameGridContainer) => {
+            _showStartButton();
             publicAPI.reset(gameGridContainer);
             publicAPI.startGameForLevel(level, gameGridContainer);
         },
@@ -299,7 +300,7 @@ const game = (function gameCreator() {
                 publicAPI.currentLevel,
                 gameGridContainer
             );
-            _showStartButton();
+            publicAPI.revealTiles();
         },
     };
     return publicAPI;
