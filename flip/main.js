@@ -141,6 +141,17 @@ const game = (function gameCreator() {
         startLevelButton.classList.add('hidden');
     }
 
+    function _renderLevelNotifier(level) {
+        let levelNotifierElem = document.getElementById('levelNotifier');
+        let levelTextElem = document.createTextNode(`Level ${level}`);
+        levelNotifierElem.appendChild(levelTextElem);
+    }
+
+    function _clearLevelNotifier() {
+        let levelNotifierElem = document.getElementById('levelNotifier');
+        levelNotifierElem.innerHTML = '';
+    }
+
     function _decide(gameGridContainer) {
         if (publicAPI.totalClicksForCurrentLevel !== 0) {
             return;
@@ -195,6 +206,7 @@ const game = (function gameCreator() {
             publicAPI.clickedTiles = {};
             publicAPI.totalClicksForCurrentLevel = 0;
             gameGridContainer.innerHTML = '';
+            _clearLevelNotifier();
         },
         init: (gameGridContainer, level) => {
             publicAPI.currentLevel = level || 1;
@@ -213,6 +225,7 @@ const game = (function gameCreator() {
             publicAPI.toBeMemorisedPositionMap = toBeMemorisedPositionMap;
             publicAPI.setTotalClicksForLevel(level);
             publicAPI.renderGridForLevel(gameGridContainer);
+            _renderLevelNotifier(level);
             _disableTiles();
         },
         restartLevel: (level, gameGridContainer) => {
