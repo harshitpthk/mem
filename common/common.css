@@ -6,6 +6,13 @@ body {
 
 a {
     text-decoration: none;
+    color: blueviolet;
+}
+a:hover {
+    cursor: pointer;
+}
+a:visited {
+    color: blueviolet;
 }
 
 #gameGrid {
@@ -36,7 +43,7 @@ a {
 }
 
 .gameNameInList {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin: 1rem;
 }
 
