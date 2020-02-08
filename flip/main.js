@@ -182,7 +182,10 @@ const game = (function gameCreator() {
     function _addEventHandlers(gameGridContainer) {
         document
             .getElementById('startLevelButton')
-            .addEventListener('click', () => publicAPI.revealTiles());
+            .addEventListener('click', () => {
+                publicAPI.revealTiles();
+                _hideStartButton();
+            });
         const nextLevelButton = document.getElementById(`nextLevelButton`);
         nextLevelButton.addEventListener('click', () => {
             publicAPI.nextLevel(gameGridContainer);
